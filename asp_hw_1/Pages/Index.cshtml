@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<ul>
+    @foreach (var restaurant in Model.Restaurants)
+    {
+        <li>
+            <a asp-page="/Restaurant"
+               asp-route-restaurantId="@restaurant.Id"
+               asp-route-name="@restaurant.Name"
+               asp-route-location="@restaurant.Location"
+               asp-route-chef="@restaurant.Chef">
+                @restaurant.Name
+            </a>
+        </li>
+    }
+</ul>
